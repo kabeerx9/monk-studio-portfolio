@@ -9,6 +9,7 @@ import { SparklesCore } from "@/components/ui/Sparkles";
 import { BackgroundGradientAnimation } from "@/components/ui/Gradientbg";
 import { FloatingDock } from "@/components/ui/floating-dock";
 import Footer from "@/components/Footer";
+import { VideoCarousel } from "@/components/ui/VideoCarousel";
 
 const videoEditingNavItems = [
   {
@@ -134,27 +135,13 @@ export default function VideoEditing() {
           </div>
         </section>
 
-        {/* Services Section */}
-        <section id="services" className="py-20 relative z-10 w-full">
+        {/* Video Portfolio Section */}
+        <section className="py-20 relative z-10 w-full">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
             <h2 className="text-4xl md:text-6xl font-bold text-center text-white mb-12">
-              Services
+              Featured Works
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {services.map((service, index) => (
-                <motion.div
-                  key={service.title}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.2 }}
-                  className="bg-white/10 backdrop-blur-lg rounded-xl p-6 hover:bg-white/20 transition-all"
-                >
-                  <div className="text-4xl mb-4">{service.icon}</div>
-                  <h3 className="text-2xl font-bold text-white mb-2">{service.title}</h3>
-                  <p className="text-slate-300">{service.description}</p>
-                </motion.div>
-              ))}
-            </div>
+            <VideoCarousel />
           </div>
         </section>
 
@@ -183,26 +170,6 @@ export default function VideoEditing() {
                   </div>
                 </motion.div>
               ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Portfolio Section */}
-        <section id="portfolio" className="py-20 relative w-full">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="h-[40rem] w-full bg-black flex flex-col items-center justify-center overflow-hidden rounded-md">
-              <h2 className="text-4xl md:text-6xl font-bold text-center text-white mb-8 relative z-20">
-                Featured Works
-              </h2>
-              <SparklesCore
-                id="tsparticlesfullpage"
-                background="transparent"
-                minSize={0.6}
-                maxSize={1.4}
-                particleDensity={100}
-                className="w-full h-full absolute"
-                particleColor="#FFFFFF"
-              />
             </div>
           </div>
         </section>
