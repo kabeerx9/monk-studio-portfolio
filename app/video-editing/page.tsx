@@ -112,6 +112,7 @@ export default function VideoEditing() {
         `}</style>
 
         {/* Navigation */}
+        {/* @ts-ignore */}
         <FloatingNav navItems={videoEditingNavItems} />
 
         {/* Hero Section with Lamp Effect */}
