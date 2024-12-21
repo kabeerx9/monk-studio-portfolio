@@ -9,7 +9,8 @@ import { SparklesCore } from "@/components/ui/Sparkles";
 import { BackgroundGradientAnimation } from "@/components/ui/Gradientbg";
 import { FloatingDock } from "@/components/ui/floating-dock";
 import Footer from "@/components/Footer";
-import { VideoCarousel } from "@/components/ui/VideoCarousel";
+import { EnhancedVideoCarousel } from "@/components/ui/EnhancedVideoCarousel";
+import { youtubeShortLinks, carEditLinks, companyEditLinks } from "@/data/youtube-links";
 
 const videoEditingNavItems = [
   {
@@ -138,10 +139,26 @@ export default function VideoEditing() {
         {/* Video Portfolio Section */}
         <section className="py-20 relative z-10 w-full">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
-            <h2 className="text-4xl md:text-6xl font-bold text-center text-white mb-12">
-              Featured Works
-            </h2>
-            <VideoCarousel />
+            <EnhancedVideoCarousel
+              videos={youtubeShortLinks}
+              title="Featured Shorts"
+              isShorts={true}
+              autoplayOnHover={true}
+            />
+
+            <EnhancedVideoCarousel
+              videos={carEditLinks}
+              title="Car Editing Showcase"
+              isShorts={false}
+              autoplayOnHover={false}
+            />
+
+            <EnhancedVideoCarousel
+              videos={companyEditLinks}
+              title="Corporate Video Edits"
+              isShorts={false}
+              autoplayOnHover={false}
+            />
           </div>
         </section>
 
