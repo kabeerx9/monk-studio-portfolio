@@ -119,17 +119,21 @@ export default function VideoEditing() {
   const router = useRouter();
 
   return (
-    <div className="min-h-screen w-full bg-black relative">
+    <div className="min-h-screen w-full bg-black relative overflow-x-hidden">
       <button
         onClick={() => router.back()}
-        className="fixed top-8 left-8 z-50 flex items-center gap-2 px-4 py-2 text-sm text-white/90 hover:text-white transition-colors rounded-lg backdrop-blur border border-white/10 hover:border-white/20"
+        className="fixed top-4 left-4 z-50 flex items-center gap-2 px-3 py-2 text-sm text-white/90 hover:text-white transition-colors rounded-lg backdrop-blur border border-white/10 hover:border-white/20"
       >
         <IconArrowLeft className="w-4 h-4" />
         Back
       </button>
 
-      <main className="min-h-screen bg-black relative w-full">
+      <main className="min-h-screen bg-black relative w-full overflow-x-hidden">
         <style jsx global>{`
+          html, body {
+            overflow-x: hidden;
+            width: 100%;
+          }
           body {
             overflow-x: hidden;
           }
