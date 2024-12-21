@@ -49,9 +49,57 @@ const dummyVideos: Video[] = [
   }
 ];
 
+const VideoModal = ({ video, onClose }: { video: Video | null; onClose: () => void }) => {
+  if (!video) return null;
+
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/80"
+      onClick={onClose}
+    >
+      <motion.div
+        initial={{ scale: 0.9 }}
+        animate={{ scale: 1 }}
+        exit={{ scale: 0.9 }}
+        className="relative w-[90vw] h-[80vh] max-w-6xl"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <button
+          onClick={onClose}
+          className="absolute -top-10 right-0 text-white text-xl hover:text-gray-300"
+        >
+          Close
+        </button>
+        <iframe
+          width="100%"
+          height="100%"
+          src={`${video.url}?autoplay=1`}
+          title={video.title}
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+          className="rounded-lg"
+        />
+      </motion.div>
+    </motion.div>
+  );
+};
+
 export const VideoCarousel = () => {
   const [selectedVideo, setSelectedVideo] = useState<Video | null>(null);
   const [isPaused, setIsPaused] = useState(false);
+
+  const handleVideoClick = (video: Video) => {
+    setSelectedVideo(video);
+    setIsPaused(true);
+  };
+
+  const handleCloseModal = () => {
+    setSelectedVideo(null);
+    setIsPaused(false);
+  };
 
   return (
     <div className="relative w-full overflow-hidden py-10">
@@ -68,41 +116,28 @@ export const VideoCarousel = () => {
         }}
         onHoverStart={() => setIsPaused(true)}
         onHoverEnd={() => {
-          setIsPaused(false);
-          setSelectedVideo(null);
+          if (!selectedVideo) {
+            setIsPaused(false);
+          }
         }}
       >
         <div className="flex gap-4">
           {dummyVideos.map((video) => (
             <motion.div
               key={video.id}
-              className={`relative flex-shrink-0 cursor-pointer rounded-lg overflow-hidden
-                ${selectedVideo?.id === video.id ? 'w-full h-[80vh]' : 'w-[300px] h-[200px]'}`}
-              onClick={() => setSelectedVideo(video)}
-              layoutId={`video-${video.id}`}
+              className="relative flex-shrink-0 w-[300px] h-[200px] cursor-pointer rounded-lg overflow-hidden"
+              onClick={() => handleVideoClick(video)}
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.2 }}
             >
-              {selectedVideo?.id === video.id ? (
-                <iframe
-                  width="100%"
-                  height="100%"
-                  src={`${video.url}?autoplay=1`}
-                  title={video.title}
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                  className="absolute inset-0"
-                />
-              ) : (
-                <>
-                  <img
-                    src={video.thumbnail}
-                    alt={video.title}
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
-                    <h3 className="text-white text-xl font-bold">{video.title}</h3>
-                  </div>
-                </>
-              )}
+              <img
+                src={video.thumbnail}
+                alt={video.title}
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-black/50 flex items-center justify-center hover:bg-black/30 transition-colors">
+                <h3 className="text-white text-xl font-bold text-center px-4">{video.title}</h3>
+              </div>
             </motion.div>
           ))}
         </div>
@@ -111,19 +146,27 @@ export const VideoCarousel = () => {
             <motion.div
               key={`clone-${video.id}`}
               className="relative flex-shrink-0 w-[300px] h-[200px] cursor-pointer rounded-lg overflow-hidden"
+              onClick={() => handleVideoClick(video)}
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.2 }}
             >
               <img
                 src={video.thumbnail}
                 alt={video.title}
                 className="w-full h-full object-cover"
               />
-              <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
-                <h3 className="text-white text-xl font-bold">{video.title}</h3>
+              <div className="absolute inset-0 bg-black/50 flex items-center justify-center hover:bg-black/30 transition-colors">
+                <h3 className="text-white text-xl font-bold text-center px-4">{video.title}</h3>
               </div>
             </motion.div>
           ))}
         </div>
       </motion.div>
+
+      {/* Video Modal */}
+      {selectedVideo && (
+        <VideoModal video={selectedVideo} onClose={handleCloseModal} />
+      )}
     </div>
   );
-}; 
+};
