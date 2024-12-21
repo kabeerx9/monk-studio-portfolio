@@ -43,7 +43,7 @@ export default function Contact() {
           className="text-center mb-12"
         >
           <h1 className="text-4xl md:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple to-violet-500 mb-4">
-            Let's Create Something Amazing
+            Let&apos;s Create Something Amazing
           </h1>
           <p className="text-neutral-300 text-lg">
             Choose your service and tell us about your project
