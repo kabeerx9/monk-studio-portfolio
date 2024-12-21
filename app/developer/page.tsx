@@ -12,6 +12,28 @@ import { FloatingNav } from "@/components/ui/FloatingNav";
 import { navItems } from "@/data";
 import { useRouter } from "next/navigation";
 import { IconArrowLeft } from "@tabler/icons-react";
+import { AnimatedTestimonials } from "@/components/ui/animated-testimonials";
+
+const developerTestimonials = [
+  {
+    quote: "An exceptional developer who delivered our project ahead of schedule. The code quality and architecture decisions were outstanding.",
+    name: "David Smith",
+    designation: "CTO, TechStart Inc.",
+    src: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=500&h=500&auto=format&fit=crop"
+  },
+  {
+    quote: "Incredible problem-solving skills and attention to detail. The custom solutions provided have significantly improved our application's performance.",
+    name: "Emily Zhang",
+    designation: "Product Manager",
+    src: "https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=500&h=500&auto=format&fit=crop"
+  },
+  {
+    quote: "A true professional who understands both the technical and business aspects of software development. The results speak for themselves.",
+    name: "James Wilson",
+    designation: "Startup Founder",
+    src: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=500&h=500&auto=format&fit=crop"
+  }
+];
 
 export default function Home() {
   const router = useRouter();
@@ -36,6 +58,12 @@ export default function Home() {
         {/* <Client /> */}
         <Experience />
         <Approach />
+        <div className="pt-4 pb-20">
+          <h2 className="text-4xl md:text-6xl font-bold text-center text-white mb-12">
+            Client Testimonials
+          </h2>
+          <AnimatedTestimonials testimonials={developerTestimonials} autoplay={true} />
+        </div>
         <Footer />
       </div>
     </main>

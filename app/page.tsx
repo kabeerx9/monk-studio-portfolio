@@ -8,6 +8,7 @@ import { BackgroundBeams } from "@/components/ui/Beams";
 import MagicButton from "@/components/ui/MagicButton";
 import { FaArrowRight } from "react-icons/fa6";
 import { FloatingNav } from "@/components/ui/FloatingNav";
+import { PartnersCarousel } from "@/components/ui/PartnersCarousel";
 
 export default function Home() {
   const router = useRouter();
@@ -108,8 +109,19 @@ export default function Home() {
         </div>
       </div>
 
+      {/* Partners Section */}
+      <motion.div
+        className="w-full mt-20"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 2, duration: 0.5 }}
+      >
+        <PartnersCarousel />
+      </motion.div>
+
       {/* Background Beams Effect */}
       <BackgroundBeams />
+
     </main>
   );
 }

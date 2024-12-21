@@ -13,6 +13,7 @@ import { EnhancedVideoCarousel } from "@/components/ui/EnhancedVideoCarousel";
 import { youtubeShortLinks, carEditLinks, companyEditLinks } from "@/data/youtube-links";
 import { useRouter } from "next/navigation";
 import { IconArrowLeft } from "@tabler/icons-react";
+import { AnimatedTestimonials } from "@/components/ui/animated-testimonials";
 
 const videoEditingNavItems = [
   {
@@ -39,6 +40,27 @@ const videoEditingNavItems = [
     name: "Contact",
     link: "/video-editing#contact",
     icon: "📧"
+  }
+];
+
+const videoEditingTestimonials = [
+  {
+    quote: "The video edits were absolutely phenomenal! The attention to detail and creative transitions really made our content stand out.",
+    name: "Sarah Johnson",
+    designation: "Content Creator",
+    src: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=500&h=500&auto=format&fit=crop"
+  },
+  {
+    quote: "Working with this video editing service transformed our corporate videos. The quality and professionalism exceeded our expectations.",
+    name: "Michael Chen",
+    designation: "Marketing Director",
+    src: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=500&h=500&auto=format&fit=crop"
+  },
+  {
+    quote: "Fast turnaround, excellent communication, and stunning results. Our YouTube channel has seen significant growth since working together.",
+    name: "Alex Rodriguez",
+    designation: "YouTuber",
+    src: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=500&h=500&auto=format&fit=crop"
   }
 ];
 
@@ -224,6 +246,14 @@ export default function VideoEditing() {
               }
             ]}
           />
+        </div>
+
+        {/* Testimonials */}
+        <div className="py-20">
+          <h2 className="text-4xl md:text-6xl font-bold text-center text-white mb-12">
+            What Our Clients Say
+          </h2>
+          <AnimatedTestimonials testimonials={videoEditingTestimonials} autoplay={true} />
         </div>
 
         {/* Footer */}
