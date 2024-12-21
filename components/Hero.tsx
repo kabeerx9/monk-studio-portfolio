@@ -7,13 +7,7 @@ import { TypewriterEffect } from "./ui/TypewriterEffect";
 const Hero = () => {
   const words = [
     {
-      text: "I",
-    },
-    {
-      text: "Build",
-    },
-    {
-      text: "High-performance",
+        text: "High-performance",
     },
     {
       text: "Web",
@@ -43,27 +37,22 @@ const Hero = () => {
         />
       </div>
 
-      <div className="h-screen w-full dark:bg-black-100 bg-white  dark:bg-grid-white/[0.1] bg-grid-black/[0.2] flex items-center justify-center absolute top-0 left-0">
+      <div className=" w-full dark:bg-black-100 bg-white  dark:bg-grid-white/[0.1] bg-grid-black/[0.2] flex items-center justify-center absolute top-0 left-0">
         <div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black-100 bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]" />
       </div>
 
       <div className="flex justify-center relative my-20-z-10">
         <div className="max-w-[89vw] md:max-w-2xl lg:max-w-[60vw] flex flex-col items-center justify-center">
-          <img
-            src="/dp.jpg"
-            alt="profile-pic"
-            className="rounded-full w-80 h-80 border-2 border-white-100 mb-5"
-          />
           <h2 className="uppercase tracking-widest text-xs text-center text-blue-100 max-w-80">
-            Akash Jana
+            Media Monk Studio
           </h2>
           <TypewriterEffect
             className="text-center md:text-5xl lg:text-6xl my-5"
             words={words}
           />
           <p className="text-center md:tracking-wider mb-4 text-sm md:text-lg lg:text-2xl">
-            Hi, I&apos;m Akash, a Web Developer, Open Source and AI Enthusiast.
-          </p>
+                   Hi, We are Media Monk Studio, a team of passionate developers and designers.
+                </p>
 
           <a href="#projects" className="cursor-pointer">
             <MagicButton
