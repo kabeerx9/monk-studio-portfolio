@@ -86,7 +86,7 @@ const processSteps = [
   {
     title: "Final Delivery",
     description: "Polished final version in your preferred format and resolution",
-    icon: "🚀"
+    icon: "����"
   }
 ];
 
@@ -112,7 +112,6 @@ export default function VideoEditing() {
         `}</style>
 
         {/* Navigation */}
-        {/* @ts-ignore */}
         <FloatingNav navItems={videoEditingNavItems} />
 
         {/* Hero Section with Lamp Effect */}
@@ -191,7 +190,7 @@ export default function VideoEditing() {
               },
               {
                 title: "Watch Demo",
-                icon: "▶️",
+                icon: "🎥",
                 href: "/video-editing#portfolio"
               }
             ]}

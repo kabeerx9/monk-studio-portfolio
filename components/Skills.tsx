@@ -1,5 +1,9 @@
 "use client";
-import { IconCloud } from "@/components/ui/IconCloud";
+import dynamic from "next/dynamic";
+
+const IconCloud = dynamic(() => import("@/components/ui/IconCloud").then((mod) => mod.IconCloud), {
+  ssr: false
+});
 
 const slugs = [
   "typescript",
@@ -22,7 +26,6 @@ const slugs = [
   "figma",
   "mongodb",
   "python",
-  
 ];
 
 function Skills() {
