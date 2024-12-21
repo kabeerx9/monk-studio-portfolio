@@ -119,8 +119,8 @@ export default function VideoEditing() {
   const router = useRouter();
 
   return (
-    <div className="min-h-screen w-full bg-black relative overflow-x-hidden">
-      <main className="content-wrapper">
+    <div className="w-full h-full bg-black relative ">
+
         <button
           onClick={() => router.back()}
           className="fixed top-4 left-4 z-50 flex items-center gap-2 px-3 py-2 text-sm text-white/90 hover:text-white transition-colors rounded-lg backdrop-blur border border-white/10 hover:border-white/20"
@@ -129,26 +129,7 @@ export default function VideoEditing() {
           Back
         </button>
 
-        <style jsx global>{`
-          html, body {
-            overflow-x: hidden;
-            width: 100%;
-          }
-          body {
-            overflow-x: hidden;
-          }
-          .floating-dock {
-            isolation: isolate;
-            z-index: 100;
-          }
-          .background-gradient {
-            z-index: 1;
-          }
-          .content-layer {
-            z-index: 2;
-            position: relative;
-          }
-        `}</style>
+
 
         {/* Navigation */}
 
@@ -262,7 +243,7 @@ export default function VideoEditing() {
 
         {/* Footer */}
         <Footer />
-      </main>
+
     </div>
   );
 }
