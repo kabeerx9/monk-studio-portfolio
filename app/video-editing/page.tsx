@@ -11,6 +11,8 @@ import { FloatingDock } from "@/components/ui/floating-dock";
 import Footer from "@/components/Footer";
 import { EnhancedVideoCarousel } from "@/components/ui/EnhancedVideoCarousel";
 import { youtubeShortLinks, carEditLinks, companyEditLinks } from "@/data/youtube-links";
+import { useRouter } from "next/navigation";
+import { IconArrowLeft } from "@tabler/icons-react";
 
 const videoEditingNavItems = [
   {
@@ -92,8 +94,18 @@ const processSteps = [
 ];
 
 export default function VideoEditing() {
+  const router = useRouter();
+
   return (
-    <div className="w-full overflow-hidden">
+    <div className="min-h-screen w-full bg-black relative">
+      <button
+        onClick={() => router.back()}
+        className="fixed top-8 left-8 z-50 flex items-center gap-2 px-4 py-2 text-sm text-white/90 hover:text-white transition-colors rounded-lg backdrop-blur border border-white/10 hover:border-white/20"
+      >
+        <IconArrowLeft className="w-4 h-4" />
+        Back
+      </button>
+
       <main className="min-h-screen bg-black relative w-full">
         <style jsx global>{`
           body {

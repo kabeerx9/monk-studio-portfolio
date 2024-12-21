@@ -5,8 +5,27 @@ import { useState } from "react";
 import { BackgroundBeams } from "@/components/ui/Beams";
 import { SparklesCore } from "@/components/ui/Sparkles";
 import { cn } from "@/lib/utils";
+import { FloatingNav } from "@/components/ui/FloatingNav";
+import { useRouter } from "next/navigation";
+import { IconArrowLeft } from "@tabler/icons-react";
+
+const contactNavItems = [
+  {
+    name: "Home",
+    link: "/"
+  },
+  {
+    name: "Video Editing",
+    link: "/video-editing"
+  },
+  {
+    name: "Development",
+    link: "/developer"
+  }
+];
 
 export default function Contact() {
+  const router = useRouter();
   const [serviceType, setServiceType] = useState<"web" | "video" | null>(null);
 
   const formFields = {
@@ -24,6 +43,14 @@ export default function Contact() {
 
   return (
     <div className="min-h-screen w-full bg-black relative flex flex-col items-center justify-center overflow-hidden">
+      <button
+        onClick={() => router.back()}
+        className="fixed top-8 left-8 z-50 flex items-center gap-2 px-4 py-2 text-sm text-white/90 hover:text-white transition-colors rounded-lg backdrop-blur border border-white/10 hover:border-white/20"
+      >
+        <IconArrowLeft className="w-4 h-4" />
+        Back
+      </button>
+      <FloatingNav navItems={contactNavItems} />
       <div className="w-full absolute inset-0 h-screen">
         <SparklesCore
           id="tsparticlesfullpage"
