@@ -1,12 +1,12 @@
 export const navItems = [
     { name: "About", link: "#about" },
-    { name: "Resume", link: "https://drive.google.com/file/d/1udileHqcrbD09gjuFpUZlHgpOajw3UU_/view?usp=sharing" },
+
     { name: "Projects", link: "#projects" },
-    //{ name: "Testimonials", link: "#testimonials" },
-    { name: "Blogs", link: "https://dev.to/akashjana"},
-    { name: "Contact", link: "#contact" },
+
+
+    { name: "Contact", link: "/contact" },
   ];
-  
+
   export const gridItems = [
     {
       id: 1,
@@ -48,7 +48,7 @@ export const navItems = [
       img: "/grid.svg",
       spareImg: "/b4.svg",
     },
-  
+
     {
       id: 5,
       title: "Clean Code and Modern Design",
@@ -70,7 +70,7 @@ export const navItems = [
       spareImg: "",
     },
   ];
-  
+
   export const projects = [
         {
       id: 1,
@@ -96,7 +96,7 @@ export const navItems = [
       iconLists: ["/re.svg", "/css.svg", "/js.svg", "/chartjs.svg", "/fm.svg", "/mui.svg"],
       link: "cryptack.netlify.app/",
     },
-  
+
     {
       id: 4,
       title: "React Quiz with Timer",
@@ -106,7 +106,7 @@ export const navItems = [
       link: "react-quiz-with-timer.netlify.app/",
     },
   ];
-  
+
   export const testimonials = [
     {
       quote:
@@ -139,7 +139,7 @@ export const navItems = [
       title: "Director of AlphaStream Technologies",
     },
   ];
-  
+
   export const companies = [
     {
       id: 1,
@@ -172,7 +172,7 @@ export const navItems = [
       nameImg: "/dockerName.svg",
     },
   ];
-  
+
   export const workExperience = [
     {
       id: 1,
@@ -203,8 +203,8 @@ export const navItems = [
       thumbnail: "/exp4.svg",
     },
   ];
-  
-  
+
+
   export const socialMedia = [
     {
       id: 1,
