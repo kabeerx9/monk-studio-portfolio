@@ -8,7 +8,7 @@ import Grid from "@/components/Grid";
 import Hero from "@/components/Hero";
 import RecentProjects from "@/components/RecentProjects";
 import Skills from "@/components/Skills";
-import { FloatingNav } from "@/components/ui/FloatingNav";
+
 import { navItems } from "@/data";
 import { useRouter } from "next/navigation";
 import { IconArrowLeft } from "@tabler/icons-react";
@@ -49,8 +49,7 @@ export default function Home() {
       </button>
 
       <div className="max-w-7xl w-full">
-        <FloatingNav
-        navItems={navItems} />
+
         <Hero />
         {/* <Grid /> */}
         <Skills />

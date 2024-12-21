@@ -5,7 +5,7 @@ import { useState } from "react";
 import { BackgroundBeams } from "@/components/ui/Beams";
 import { SparklesCore } from "@/components/ui/Sparkles";
 import { cn } from "@/lib/utils";
-import { FloatingNav } from "@/components/ui/FloatingNav";
+
 import { useRouter } from "next/navigation";
 import { IconArrowLeft } from "@tabler/icons-react";
 
@@ -50,7 +50,7 @@ export default function Contact() {
         <IconArrowLeft className="w-4 h-4" />
         Back
       </button>
-      <FloatingNav navItems={contactNavItems} />
+
       <div className="w-full absolute inset-0 h-screen">
         <SparklesCore
           id="tsparticlesfullpage"

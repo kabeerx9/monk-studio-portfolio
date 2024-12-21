@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { LampContainer } from "@/components/ui/lamp";
-import { FloatingNav } from "@/components/ui/FloatingNav";
+
 import { BackgroundBeams } from "@/components/ui/Beams";
 import { TextGenerateEffect } from "@/components/ui/text-generate-effect";
 import { SparklesCore } from "@/components/ui/Sparkles";
@@ -147,7 +147,7 @@ export default function VideoEditing() {
         `}</style>
 
         {/* Navigation */}
-        <FloatingNav navItems={videoEditingNavItems} />
+
 
         {/* Hero Section with Lamp Effect */}
         <section className="min-h-screen flex items-center justify-center relative w-full">

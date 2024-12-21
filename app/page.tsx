@@ -7,7 +7,6 @@ import { TypewriterEffect } from "@/components/ui/TypewriterEffect";
 import { BackgroundBeams } from "@/components/ui/Beams";
 import MagicButton from "@/components/ui/MagicButton";
 import { FaArrowRight } from "react-icons/fa6";
-import { FloatingNav } from "@/components/ui/FloatingNav";
 import { PartnersCarousel } from "@/components/ui/PartnersCarousel";
 
 export default function Home() {
@@ -51,7 +50,7 @@ export default function Home() {
 
   return (
     <main className="h-screen w-full dark:bg-black bg-white dark:bg-grid-white/[0.1] bg-grid-black/[0.1] relative flex flex-col items-center justify-center overflow-hidden">
-      <FloatingNav navItems={homeNavItems} />
+
       {/* Gradient Background */}
       <div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]" />
 
