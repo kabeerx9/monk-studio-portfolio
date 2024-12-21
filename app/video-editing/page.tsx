@@ -2,11 +2,8 @@
 
 import { motion } from "framer-motion";
 import { LampContainer } from "@/components/ui/lamp";
-
 import { BackgroundBeams } from "@/components/ui/Beams";
 import { TextGenerateEffect } from "@/components/ui/text-generate-effect";
-import { SparklesCore } from "@/components/ui/Sparkles";
-import { BackgroundGradientAnimation } from "@/components/ui/Gradientbg";
 import { FloatingDock } from "@/components/ui/floating-dock";
 import Footer from "@/components/Footer";
 import { EnhancedVideoCarousel } from "@/components/ui/EnhancedVideoCarousel";
@@ -119,59 +116,80 @@ export default function VideoEditing() {
   const router = useRouter();
 
   return (
-    <div className="w-full h-full bg-black relative ">
+    <main className="min-h-screen w-full bg-black relative flex flex-col overflow-hidden">
+      {/* Back Button */}
+      <button
+        onClick={() => router.back()}
+        className="fixed top-8 left-8 z-50 flex items-center gap-2 px-4 py-2 text-sm text-white/90 hover:text-white transition-colors rounded-lg backdrop-blur border border-white/10 hover:border-white/20"
+      >
+        <IconArrowLeft className="w-4 h-4" />
+        Back
+      </button>
 
-        <button
-          onClick={() => router.back()}
-          className="fixed top-4 left-4 z-50 flex items-center gap-2 px-3 py-2 text-sm text-white/90 hover:text-white transition-colors rounded-lg backdrop-blur border border-white/10 hover:border-white/20"
-        >
-          <IconArrowLeft className="w-4 h-4" />
-          Back
-        </button>
+      {/* Hero Section */}
+      <section className="min-h-screen flex items-center justify-center relative w-full px-4 sm:px-6 lg:px-8 pt-20">
+        <LampContainer>
+          <motion.h1
+            initial={{ opacity: 0.5, y: 100 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3, duration: 0.8 }}
+            className="mt-8 bg-gradient-to-br from-slate-300 to-slate-500 py-4 bg-clip-text text-center text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-transparent"
+          >
+            Cinematic Video Editing <br /> that Tells Your Story
+          </motion.h1>
+          <TextGenerateEffect
+            words="Transform your raw footage into compelling visual narratives that captivate your audience"
+            className="mt-8 text-base sm:text-md md:text-xl lg:text-2xl text-slate-400 max-w-3xl text-center mx-auto px-4"
+          />
+        </LampContainer>
+        <div className="absolute inset-0 pointer-events-none">
+          <BackgroundBeams />
+        </div>
+      </section>
 
-
-
-        {/* Navigation */}
-
-
-        {/* Hero Section with Lamp Effect */}
-        <section className="min-h-screen flex items-center justify-center relative w-full">
-          <LampContainer>
-            <motion.h1
-              initial={{ opacity: 0.5, y: 100 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3, duration: 0.8 }}
-              className="mt-8 bg-gradient-to-br from-slate-300 to-slate-500 py-4 bg-clip-text text-center text-4xl font-medium tracking-tight text-transparent md:text-7xl px-4"
-            >
-              Cinematic Video Editing <br /> that Tells Your Story
-            </motion.h1>
-            <TextGenerateEffect
-              words="Transform your raw footage into compelling visual narratives that captivate your audience"
-              className="mt-4 text-xl text-slate-400 px-4"
-            />
-          </LampContainer>
-          <div className="absolute inset-0 pointer-events-none">
-            <BackgroundBeams />
+      {/* Services Section */}
+      <section id="services" className="py-24 md:py-32 relative w-full px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-center text-white mb-16">
+            Our Services
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 lg:gap-10">
+            {services.map((service, index) => (
+              <motion.div
+                key={service.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.2 }}
+                className="bg-white/5 backdrop-blur-lg rounded-xl p-6 md:p-8 hover:bg-white/10 transition-all border border-white/10"
+              >
+                <div className="text-4xl mb-6">{service.icon}</div>
+                <h3 className="text-lg md:text-xl font-bold text-white mb-3">{service.title}</h3>
+                <p className="text-sm md:text-base text-slate-400 leading-relaxed">{service.description}</p>
+              </motion.div>
+            ))}
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Video Portfolio Section */}
-        <section className="py-20 relative z-10 w-full">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
+      {/* Portfolio Section */}
+      <section id="portfolio" className="py-24 md:py-32 relative z-10 w-full px-4 sm:px-6 lg:px-8 bg-black/50">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-center text-white mb-16">
+            Our Portfolio
+          </h2>
+          <div className="space-y-24">
             <EnhancedVideoCarousel
               videos={youtubeShortLinks}
               title="Featured Shorts"
               isShorts={true}
               autoplayOnHover={true}
             />
-
             <EnhancedVideoCarousel
               videos={carEditLinks}
               title="Car Editing Showcase"
               isShorts={false}
               autoplayOnHover={false}
             />
-
             <EnhancedVideoCarousel
               videos={companyEditLinks}
               title="Corporate Video Edits"
@@ -179,71 +197,72 @@ export default function VideoEditing() {
               autoplayOnHover={false}
             />
           </div>
-        </section>
-
-        {/* Process Section */}
-        <section id="process" className="py-20 relative w-full">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-4xl md:text-6xl font-bold text-center text-white mb-12">
-              Our Process
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8">
-              {processSteps.map((step, index) => (
-                <motion.div
-                  key={step.title}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.2 }}
-                  className="relative"
-                >
-                  {index < processSteps.length - 1 && (
-                    <div className="hidden md:block absolute top-8 left-full w-full h-0.5 bg-purple-500/20" />
-                  )}
-                  <div className="bg-white/5 backdrop-blur-lg rounded-xl p-6 hover:bg-white/10 transition-all border border-white/10">
-                    <div className="text-3xl mb-4">{step.icon}</div>
-                    <h3 className="text-xl font-bold text-white mb-2">{step.title}</h3>
-                    <p className="text-sm text-slate-400">{step.description}</p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Floating Dock */}
-        <div className="fixed bottom-10 left-1/2 transform -translate-x-1/2" style={{ zIndex: 1000 }}>
-          <FloatingDock
-            items={[
-              {
-                title: "Start Project",
-                icon: "🚀",
-                href: "/video-editing#contact"
-              },
-              {
-                title: "View Pricing",
-                icon: "💎",
-                href: "/video-editing#pricing"
-              },
-              {
-                title: "Watch Demo",
-                icon: "🎥",
-                href: "/video-editing#portfolio"
-              }
-            ]}
-          />
         </div>
+      </section>
 
-        {/* Testimonials */}
-        <div className="py-20">
-          <h2 className="text-4xl md:text-6xl font-bold text-center text-white mb-12">
+      {/* Process Section */}
+      <section id="process" className="py-24 md:py-32 relative w-full px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-center text-white mb-16">
+            Our Process
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6 md:gap-8 lg:gap-10">
+            {processSteps.map((step, index) => (
+              <motion.div
+                key={step.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.2 }}
+                className="relative"
+              >
+                {index < processSteps.length - 1 && (
+                  <div className="hidden md:block absolute top-10 left-full w-full h-0.5 bg-purple-500/20" />
+                )}
+                <div className="bg-white/5 backdrop-blur-lg rounded-xl p-6 md:p-8 hover:bg-white/10 transition-all border border-white/10">
+                  <div className="text-4xl mb-6">{step.icon}</div>
+                  <h3 className="text-lg md:text-xl font-bold text-white mb-3">{step.title}</h3>
+                  <p className="text-sm md:text-base text-slate-400 leading-relaxed">{step.description}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section className="py-24 md:py-32 px-4 sm:px-6 lg:px-8 bg-black/50">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-center text-white mb-16">
             What Our Clients Say
           </h2>
           <AnimatedTestimonials testimonials={videoEditingTestimonials} autoplay={true} />
         </div>
+      </section>
 
-        {/* Footer */}
-        <Footer />
+      {/* Floating Dock */}
+      <div className="fixed bottom-8 left-1/2 transform -translate-x-1/2 z-50">
+        <FloatingDock
+          items={[
+            {
+              title: "Start Project",
+              icon: "🚀",
+              href: "/video-editing#contact"
+            },
+            {
+              title: "View Pricing",
+              icon: "💎",
+              href: "/video-editing#pricing"
+            },
+            {
+              title: "Watch Demo",
+              icon: "🎥",
+              href: "/video-editing#portfolio"
+            }
+          ]}
+        />
+      </div>
 
-    </div>
+      <Footer />
+    </main>
   );
 }
